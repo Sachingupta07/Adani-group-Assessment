@@ -1,0 +1,38 @@
+#include <iostream>
+using namespace std;
+
+int ** create2DArray(int numberOfRows, int numberOfColumns)
+
+{
+    int ** array2D = new int *[numberOfRows];
+    for (int i = 0; i < numberOfRows; i++)
+        array2D[i] = new int[numberOfColumns];
+   
+    for (int i = 0; i < numberOfRows; i++)
+    {
+        for (int j = 0; j < numberOfColumns; j++)
+        {
+            array2D[i][j] = rand() % 101;
+        }
+    }
+    return array2D;
+}
+
+int main()
+{
+    int rows, cols;
+    cout << "Enter number of Rows : ";
+    cin >> rows;
+    cout << "Enter number of Columns : ";
+    cin >> cols;
+    int** array2D = create2DArray(rows, cols);
+    for (int i = 0; i < rows; i++)
+    {
+        for (int j = 0; j < cols; j++)
+        {
+            cout << array2D[i][j] << " ";
+        }
+        cout << endl;
+    }
+    return 0;
+}
